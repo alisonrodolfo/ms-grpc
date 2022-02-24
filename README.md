@@ -45,7 +45,7 @@ O Shopping Cart é uma API Rest  que se conecta ao Product Service por gRPC
 # collection do postman
 
 ```sh
-Microserviços com ElasticSearch.postman_collection.json
+Microserviços com gRPC.postman_collection.json
 ```
 
 ## Docker
