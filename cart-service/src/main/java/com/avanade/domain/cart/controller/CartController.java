@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.swing.text.html.Option;
 import java.util.Optional;
 
+/**
+ * The type Cart controller.
+ */
 @RestController
 @RequestMapping("/api/cart")
 @OpenAPIDefinition(info = @Info(title = "Cart Controller", version = "1.0", description = ""))
@@ -20,10 +23,21 @@ public class CartController {
 
     private final ProductGrpc productGrpc;
 
+    /**
+     * Instantiates a new Cart controller.
+     *
+     * @param productGrpc the product grpc
+     */
     public CartController(ProductGrpc productGrpc) {
         this.productGrpc = productGrpc;
     }
 
+    /**
+     * Find product by description response entity.
+     *
+     * @param description the description
+     * @return the response entity
+     */
     @GetMapping("/product-by-description")
     public ResponseEntity<Optional<ProductData>> findProductByDescription(@RequestParam String description) {
         return ResponseEntity.ok(productGrpc.receiveProductByDescription(description));

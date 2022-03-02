@@ -10,12 +10,21 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * The type Product grpc.
+ */
 @Service
 public class ProductGrpc {
 
     @GrpcClient("product-server")
     private ProductServiceGrpc.ProductServiceBlockingStub serviceStub;
 
+    /**
+     * Receive product by description optional.
+     *
+     * @param description the description
+     * @return the optional
+     */
     public Optional<ProductData> receiveProductByDescription(String description) {
         ProductRequest request = ProductRequest.newBuilder()
                 .setDescription(description)
